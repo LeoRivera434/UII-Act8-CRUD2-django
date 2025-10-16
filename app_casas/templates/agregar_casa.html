@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Casa</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        form { max-width: 400px; }
+        label { display: block; margin: 10px 0 5px; }
+        input, select { width: 100%; padding: 8px; margin-bottom: 10px; }
+        button { background-color: #007BFF; color: white; padding: 10px 15px; border: none; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>Agregar Casa</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label>Dirección:</label>
+        <input type="text" name="direccion" required>
+
+        <label>Ciudad:</label>
+        <input type="text" name="ciudad" required>
+
+        <label>Precio:</label>
+        <input type="number" name="precio" step="0.01" required>
+
+        <label>Estado:</label>
+        <select name="estado" required>
+            <option value="Renta">Renta</option>
+            <option value="Venta">Venta</option>
+        </select>
+
+        <label>Habitaciones:</label>
+        <input type="number" name="habitaciones" required>
+
+        <button type="submit">Guardar</button>
+    </form>
+    <a href="/">Volver al listado</a>
+</body>
+</html>
